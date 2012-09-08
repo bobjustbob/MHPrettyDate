@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E9DC15FD15FBDF2600C594E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC15FC15FBDF2600C594E6 /* Foundation.framework */; };
+		E9DC160215FBDF2600C594E6 /* MHPrettyDate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9DC160115FBDF2600C594E6 /* MHPrettyDate.h */; };
+		E9DC160415FBDF2600C594E6 /* MHPrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC160315FBDF2600C594E6 /* MHPrettyDate.m */; };
+		E9DC160C15FBDF2600C594E6 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC160B15FBDF2600C594E6 /* SenTestingKit.framework */; };
+		E9DC160E15FBDF2600C594E6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC160D15FBDF2600C594E6 /* UIKit.framework */; };
+		E9DC160F15FBDF2600C594E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC15FC15FBDF2600C594E6 /* Foundation.framework */; };
+		E9DC161215FBDF2600C594E6 /* libMHPrettyDate.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC15F915FBDF2600C594E6 /* libMHPrettyDate.a */; };
+		E9DC161815FBDF2600C594E6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E9DC161615FBDF2600C594E6 /* InfoPlist.strings */; };
+		E9DC161B15FBDF2600C594E6 /* MHPrettyDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC161A15FBDF2600C594E6 /* MHPrettyDateTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E9DC161015FBDF2600C594E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E9DC15F015FBDF2600C594E6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E9DC15F815FBDF2600C594E6;
+			remoteInfo = MHPrettyDate;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E9DC15F715FBDF2600C594E6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				E9DC160215FBDF2600C594E6 /* MHPrettyDate.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E9DC15F915FBDF2600C594E6 /* libMHPrettyDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMHPrettyDate.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9DC15FC15FBDF2600C594E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E9DC160015FBDF2600C594E6 /* MHPrettyDate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MHPrettyDate-Prefix.pch"; sourceTree = "<group>"; };
+		E9DC160115FBDF2600C594E6 /* MHPrettyDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPrettyDate.h; sourceTree = "<group>"; };
+		E9DC160315FBDF2600C594E6 /* MHPrettyDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPrettyDate.m; sourceTree = "<group>"; };
+		E9DC160A15FBDF2600C594E6 /* MHPrettyDateTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHPrettyDateTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9DC160B15FBDF2600C594E6 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		E9DC160D15FBDF2600C594E6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		E9DC161515FBDF2600C594E6 /* MHPrettyDateTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MHPrettyDateTests-Info.plist"; sourceTree = "<group>"; };
+		E9DC161715FBDF2600C594E6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E9DC161915FBDF2600C594E6 /* MHPrettyDateTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHPrettyDateTests.h; sourceTree = "<group>"; };
+		E9DC161A15FBDF2600C594E6 /* MHPrettyDateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHPrettyDateTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E9DC15F615FBDF2600C594E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9DC15FD15FBDF2600C594E6 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9DC160615FBDF2600C594E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9DC160C15FBDF2600C594E6 /* SenTestingKit.framework in Frameworks */,
+				E9DC160E15FBDF2600C594E6 /* UIKit.framework in Frameworks */,
+				E9DC160F15FBDF2600C594E6 /* Foundation.framework in Frameworks */,
+				E9DC161215FBDF2600C594E6 /* libMHPrettyDate.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E9DC15EE15FBDF2600C594E6 = {
+			isa = PBXGroup;
+			children = (
+				E9DC15FE15FBDF2600C594E6 /* MHPrettyDate */,
+				E9DC161315FBDF2600C594E6 /* MHPrettyDateTests */,
+				E9DC15FB15FBDF2600C594E6 /* Frameworks */,
+				E9DC15FA15FBDF2600C594E6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E9DC15FA15FBDF2600C594E6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E9DC15F915FBDF2600C594E6 /* libMHPrettyDate.a */,
+				E9DC160A15FBDF2600C594E6 /* MHPrettyDateTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E9DC15FB15FBDF2600C594E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9DC15FC15FBDF2600C594E6 /* Foundation.framework */,
+				E9DC160B15FBDF2600C594E6 /* SenTestingKit.framework */,
+				E9DC160D15FBDF2600C594E6 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9DC15FE15FBDF2600C594E6 /* MHPrettyDate */ = {
+			isa = PBXGroup;
+			children = (
+				E9DC160115FBDF2600C594E6 /* MHPrettyDate.h */,
+				E9DC160315FBDF2600C594E6 /* MHPrettyDate.m */,
+				E9DC15FF15FBDF2600C594E6 /* Supporting Files */,
+			);
+			path = MHPrettyDate;
+			sourceTree = "<group>";
+		};
+		E9DC15FF15FBDF2600C594E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9DC160015FBDF2600C594E6 /* MHPrettyDate-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E9DC161315FBDF2600C594E6 /* MHPrettyDateTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9DC161915FBDF2600C594E6 /* MHPrettyDateTests.h */,
+				E9DC161A15FBDF2600C594E6 /* MHPrettyDateTests.m */,
+				E9DC161415FBDF2600C594E6 /* Supporting Files */,
+			);
+			path = MHPrettyDateTests;
+			sourceTree = "<group>";
+		};
+		E9DC161415FBDF2600C594E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E9DC161515FBDF2600C594E6 /* MHPrettyDateTests-Info.plist */,
+				E9DC161615FBDF2600C594E6 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E9DC15F815FBDF2600C594E6 /* MHPrettyDate */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9DC161E15FBDF2600C594E6 /* Build configuration list for PBXNativeTarget "MHPrettyDate" */;
+			buildPhases = (
+				E9DC15F515FBDF2600C594E6 /* Sources */,
+				E9DC15F615FBDF2600C594E6 /* Frameworks */,
+				E9DC15F715FBDF2600C594E6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MHPrettyDate;
+			productName = MHPrettyDate;
+			productReference = E9DC15F915FBDF2600C594E6 /* libMHPrettyDate.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E9DC160915FBDF2600C594E6 /* MHPrettyDateTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9DC162115FBDF2600C594E6 /* Build configuration list for PBXNativeTarget "MHPrettyDateTests" */;
+			buildPhases = (
+				E9DC160515FBDF2600C594E6 /* Sources */,
+				E9DC160615FBDF2600C594E6 /* Frameworks */,
+				E9DC160715FBDF2600C594E6 /* Resources */,
+				E9DC160815FBDF2600C594E6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9DC161115FBDF2600C594E6 /* PBXTargetDependency */,
+			);
+			name = MHPrettyDateTests;
+			productName = MHPrettyDateTests;
+			productReference = E9DC160A15FBDF2600C594E6 /* MHPrettyDateTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E9DC15F015FBDF2600C594E6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = "Bobby Williams";
+			};
+			buildConfigurationList = E9DC15F315FBDF2600C594E6 /* Build configuration list for PBXProject "MHPrettyDate" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E9DC15EE15FBDF2600C594E6;
+			productRefGroup = E9DC15FA15FBDF2600C594E6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E9DC15F815FBDF2600C594E6 /* MHPrettyDate */,
+				E9DC160915FBDF2600C594E6 /* MHPrettyDateTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E9DC160715FBDF2600C594E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9DC161815FBDF2600C594E6 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		E9DC160815FBDF2600C594E6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E9DC15F515FBDF2600C594E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9DC160415FBDF2600C594E6 /* MHPrettyDate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9DC160515FBDF2600C594E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9DC161B15FBDF2600C594E6 /* MHPrettyDateTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9DC161115FBDF2600C594E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E9DC15F815FBDF2600C594E6 /* MHPrettyDate */;
+			targetProxy = E9DC161015FBDF2600C594E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E9DC161615FBDF2600C594E6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E9DC161715FBDF2600C594E6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E9DC161C15FBDF2600C594E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E9DC161D15FBDF2600C594E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E9DC161F15FBDF2600C594E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MHPrettyDate.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MHPrettyDate/MHPrettyDate-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E9DC162015FBDF2600C594E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MHPrettyDate.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MHPrettyDate/MHPrettyDate-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E9DC162215FBDF2600C594E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MHPrettyDate/MHPrettyDate-Prefix.pch";
+				INFOPLIST_FILE = "MHPrettyDateTests/MHPrettyDateTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		E9DC162315FBDF2600C594E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MHPrettyDate/MHPrettyDate-Prefix.pch";
+				INFOPLIST_FILE = "MHPrettyDateTests/MHPrettyDateTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E9DC15F315FBDF2600C594E6 /* Build configuration list for PBXProject "MHPrettyDate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9DC161C15FBDF2600C594E6 /* Debug */,
+				E9DC161D15FBDF2600C594E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9DC161E15FBDF2600C594E6 /* Build configuration list for PBXNativeTarget "MHPrettyDate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9DC161F15FBDF2600C594E6 /* Debug */,
+				E9DC162015FBDF2600C594E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E9DC162115FBDF2600C594E6 /* Build configuration list for PBXNativeTarget "MHPrettyDateTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9DC162215FBDF2600C594E6 /* Debug */,
+				E9DC162315FBDF2600C594E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E9DC15F015FBDF2600C594E6 /* Project object */;
+}
