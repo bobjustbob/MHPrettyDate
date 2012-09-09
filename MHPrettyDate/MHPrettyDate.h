@@ -28,7 +28,7 @@
 typedef enum
 {
     MHPrettyDateFormatWithTime,
-    MHPrettyDateFormatWithoutTime
+    MHPrettyDateFormatNoTime
 } MHPrettyDateFormat;
 
 @interface MHPrettyDate : NSObject

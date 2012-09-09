@@ -40,6 +40,8 @@
 -(NSDate* )      normalizeDate:(NSDate*) date;
 -(BOOL)          isSameDay:(NSDate*) date as:(NSDate*) secondDate;
 
++(NSString*)     formattedStringForDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat;
+
 @end
     
 @implementation MHPrettyDate
@@ -83,10 +85,58 @@
     NSDate* date1 = [self normalizeDate:date];
     NSDate* date2 = [self normalizeDate:secondDate];
     
-    NSLog(@"comparing %@ to %@", date2, date1);
-    
     return [date1 isEqualToDate:date2];
 }
+
++(NSString*) formattedStringForDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat
+{
+    NSString*        dateString;
+    NSDateFormatter* formatter   = [[NSDateFormatter alloc] init];
+    
+    //
+    // TODO: this needs to be localized
+    //
+    if ([MHPrettyDate canMakePretty:date])
+    {
+        if ([MHPrettyDate isTomorrow:date])
+        {
+            dateString = @"'Tomorrow'";
+        }
+        else if ([MHPrettyDate isToday:date])
+        {
+            dateString = @"'Today'";
+        }
+        else if ([MHPrettyDate isYesterday:date])
+        {
+            dateString = @"'Yesterday'";
+        }
+        else
+        {
+            dateString = @"EEEE";
+        }
+        
+        if (dateFormat == MHPrettyDateFormatWithTime)
+        {
+            dateString = [NSString stringWithFormat:@"%@ HH:mm", dateString];
+        }
+    }
+    else
+    {
+        if (dateFormat == MHPrettyDateFormatWithTime)
+        {
+            dateString = [NSDateFormatter dateFormatFromTemplate:@"MMddyy HHmm" options:0 locale:[NSLocale currentLocale]];
+        }
+        else
+        {
+            dateString = [NSDateFormatter dateFormatFromTemplate:@"MMddyy" options:0 locale:[NSLocale currentLocale]];
+        }
+    }
+    
+    [formatter setDateFormat: dateString];
+    
+    return [formatter stringFromDate:date];
+}
+
 
 #pragma mark - accessors
 
@@ -98,7 +148,6 @@
     if (!_today)
     {
         _today = [self normalizeDate:[NSDate date]];
-        NSLog(@"MHPrettyDate today is %@", _today);
     }
     return _today;
 }
@@ -111,7 +160,6 @@
         NSDateComponents* comps = [[NSDateComponents alloc] init];
         [comps setDay: -1];
         _yesterday = [self.calendar dateByAddingComponents:comps toDate:self.today options:0];
-        NSLog(@"MHPrettyDate yesterday is %@", _yesterday);
     }
     return _yesterday;
 }
@@ -122,9 +170,8 @@
     if (!_weekAgo)
     {
         NSDateComponents* comps = [[NSDateComponents alloc] init];
-        [comps setDay: -7];
+        [comps setDay: -6];
         _weekAgo = [self.calendar dateByAddingComponents:comps toDate:self.today options:0];
-        NSLog(@"MHPrettyDate weekAgo is %@", _weekAgo);
     }
     return _weekAgo;
 }
@@ -137,7 +184,6 @@
         NSDateComponents* comps = [[NSDateComponents alloc] init];
         [comps setDay: 1];
         _tomorrow = [self.calendar dateByAddingComponents:comps toDate:self.today options:0];
-        NSLog(@"MHPrettyDate tomorrow is %@", _tomorrow);
     }
     return _tomorrow;
 }
@@ -166,7 +212,7 @@
 
 +(NSString*) prettyDateFromDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat
 {
-    return nil;
+    return [MHPrettyDate formattedStringForDate:date withFormat:dateFormat];
 }
 
 +(BOOL) isToday:(NSDate*) date
