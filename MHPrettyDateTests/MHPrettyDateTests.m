@@ -49,6 +49,16 @@ static NSCalendar* __sCalendar;
     [super tearDown];
 }
 
+- (void) printDate:(NSDate*) compareDate
+{
+//   NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
+//   NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
+//   NSLog(@"Pretty date with long time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat: MHPrettyDateLongFormatWithTime]);
+
+   NSLog(@"Pretty date long relative time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat: MHPrettyDateLongRelativeTime]);
+   NSLog(@"Pretty date short relative time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat: MHPrettyDateShortRelativeTime]);
+}
+
 - (void)testCompareToday
 {
     NSDate* compareDate = [NSDate date];
@@ -58,10 +68,9 @@ static NSCalendar* __sCalendar;
     STAssertTrue([MHPrettyDate isToday:compareDate], nil);
     STAssertFalse([MHPrettyDate isTomorrow: compareDate], nil);
     STAssertFalse([MHPrettyDate isYesterday: compareDate], nil);
-    STAssertTrue([MHPrettyDate canMakePretty:compareDate], nil);
-    
-    NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
-    NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
+    STAssertTrue([MHPrettyDate willMakePretty:compareDate], nil);
+   
+   [self printDate: compareDate];
 }
 
 - (void)testCompareTomorrow
@@ -71,16 +80,17 @@ static NSCalendar* __sCalendar;
     NSDateComponents* comps = [[NSDateComponents alloc] init];
     [comps setDay: 1];
     NSDate* compareDate = [__sCalendar dateByAddingComponents:comps toDate:now options:0];
-    
+   
     NSLog(@"tomorrow is %@", compareDate);
     
     STAssertFalse([MHPrettyDate isToday:compareDate], nil);
     STAssertTrue([MHPrettyDate isTomorrow: compareDate], nil);
     STAssertFalse([MHPrettyDate isYesterday: compareDate], nil);
-    STAssertTrue([MHPrettyDate canMakePretty:compareDate], nil);
-    
-    NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
-    NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
+    STAssertTrue([MHPrettyDate willMakePretty:compareDate], nil);
+    STAssertTrue([MHPrettyDate isFutureDate:compareDate], nil);
+    STAssertFalse([MHPrettyDate isPastDate:compareDate], nil);
+   
+   [self printDate: compareDate];
 }
 
 - (void)testCompareYesterday
@@ -96,10 +106,11 @@ static NSCalendar* __sCalendar;
     STAssertFalse([MHPrettyDate isToday:compareDate], nil);
     STAssertFalse([MHPrettyDate isTomorrow: compareDate], nil);
     STAssertTrue([MHPrettyDate isYesterday: compareDate], nil);
-    STAssertTrue([MHPrettyDate canMakePretty:compareDate], nil);
-    
-    NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
-    NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
+    STAssertTrue([MHPrettyDate willMakePretty:compareDate], nil);
+    STAssertFalse([MHPrettyDate isFutureDate:compareDate], nil);
+    STAssertTrue([MHPrettyDate isPastDate:compareDate], nil);
+   
+   [self printDate: compareDate];
 }
 
 - (void)testCompareWithinWeek
@@ -117,10 +128,9 @@ static NSCalendar* __sCalendar;
        NSLog(@"weekday is %@", compareDate);
         
         STAssertTrue([MHPrettyDate isWithinWeek:compareDate], nil);
-        STAssertTrue([MHPrettyDate canMakePretty:compareDate], nil);
+        STAssertTrue([MHPrettyDate willMakePretty:compareDate], nil);
         
-        NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
-        NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
+       [self printDate: compareDate];
     }
     
     // future
@@ -129,41 +139,65 @@ static NSCalendar* __sCalendar;
     NSDate* compareDate = [__sCalendar dateByAddingComponents:comps toDate:now options:0];
     NSLog(@"tomorrow is %@", compareDate);
     STAssertFalse([MHPrettyDate isWithinWeek:compareDate], nil);
-    STAssertTrue([MHPrettyDate canMakePretty:compareDate], nil);
+    STAssertTrue([MHPrettyDate willMakePretty:compareDate], nil);
     
-    NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
-    NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
+   [self printDate: compareDate];
 
     dateOffset = 8;
     [comps setDay: dateOffset];
     compareDate = [__sCalendar dateByAddingComponents:comps toDate:now options:0];
     NSLog(@"future is %@", compareDate);
     STAssertFalse([MHPrettyDate isWithinWeek:compareDate], nil);
-    STAssertFalse([MHPrettyDate canMakePretty:compareDate], nil);
+    STAssertFalse([MHPrettyDate willMakePretty:compareDate], nil);
     
-    NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
-    NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
-    
+   [self printDate: compareDate];
+   
     // past
     dateOffset = -7;
     [comps setDay: dateOffset];
     compareDate = [__sCalendar dateByAddingComponents:comps toDate:now options:0];
     NSLog(@"past is %@", compareDate);
     STAssertFalse([MHPrettyDate isWithinWeek:compareDate], nil);
-    STAssertFalse([MHPrettyDate canMakePretty:compareDate], nil);
+    STAssertFalse([MHPrettyDate willMakePretty:compareDate], nil);
     
-    NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
-    NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
-    
+   [self printDate: compareDate];
+   
     dateOffset = -30;
     [comps setDay: dateOffset];
     compareDate = [__sCalendar dateByAddingComponents:comps toDate:now options:0];
     NSLog(@"way past is %@", compareDate);
     STAssertFalse([MHPrettyDate isWithinWeek:compareDate], nil);
-    STAssertFalse([MHPrettyDate canMakePretty:compareDate], nil);
+    STAssertFalse([MHPrettyDate willMakePretty:compareDate], nil);
     
-    NSLog(@"Pretty date with time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatWithTime]);
-    NSLog(@"Pretty date without time is %@", [MHPrettyDate prettyDateFromDate:compareDate withFormat:MHPrettyDateFormatNoTime]);
+   [self printDate: compareDate];
+}
+
+
+- (void)testCompareMinutesAgo
+{
+   NSDate* now = [NSDate date];
+   
+   NSDateComponents* comps = [[NSDateComponents alloc] init];
+   [comps setMinute: -15];
+   NSDate* compareDate = [__sCalendar dateByAddingComponents:comps toDate:now options:0];
+   
+   NSLog(@"15 minutes ago is %@", compareDate);
+   
+   [self printDate: compareDate];
+}
+
+
+- (void)testCompareHoursAgo
+{
+   NSDate* now = [NSDate date];
+   
+   NSDateComponents* comps = [[NSDateComponents alloc] init];
+   [comps setHour: -15];
+   NSDate* compareDate = [__sCalendar dateByAddingComponents:comps toDate:now options:0];
+   
+   NSLog(@"15 hours ago is %@", compareDate);
+   
+   [self printDate: compareDate];
 }
 
 
