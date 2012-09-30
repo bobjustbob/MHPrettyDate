@@ -28,13 +28,16 @@
 typedef enum
 {
     MHPrettyDateFormatWithTime,
-    MHPrettyDateFormatNoTime
+    MHPrettyDateFormatNoTime,
+    MHPrettyDateLongFormatWithTime
 } MHPrettyDateFormat;
 
 @interface MHPrettyDate : NSObject
 
 +(NSString*) prettyDateFromDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat;
 +(BOOL)      isToday:(NSDate*)       date;
++(BOOL)      isPastDate:(NSDate*)    date;
++(BOOL)      isFutureDate:(NSDate*)  date;
 +(BOOL)      isTomorrow:(NSDate*)    date;
 +(BOOL)      isYesterday:(NSDate*)   date;
 +(BOOL)      isWithinWeek:(NSDate*)  date;
