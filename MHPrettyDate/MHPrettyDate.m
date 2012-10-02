@@ -241,11 +241,11 @@
         {
             if ([MHPrettyDate isToday:date])
             {
-                dateString = @"HH:mm a";
+                dateString = @"h:mm a";
             }
             else
             {
-            dateString = [NSString stringWithFormat:@"%@ HH:mm a", dateString];
+            dateString = [NSString stringWithFormat:@"%@ h:mm a", dateString];
             }
         }
     }
@@ -253,7 +253,7 @@
     {
         if (dateFormat == MHPrettyDateFormatWithTime)
         {
-            dateString = @"MM/dd/yy HH:mm a"; // bjw bugbugbug need to localize
+            dateString = @"MM/dd/yy h:mm a"; // bjw bugbugbug need to localize
         }
         else
         {

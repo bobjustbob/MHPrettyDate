@@ -11,7 +11,9 @@
 
 @interface ViewController ()
 
-@property (assign, nonatomic) MHPrettyDateFormat dateFormat;
+@property (assign, nonatomic) MHPrettyDateFormat   dateFormat;
+@property (strong, nonatomic) NSMutableArray*      cellArray;
+@property (strong, nonatomic) NSCalendar*          calendar;
 
 @end
 
@@ -21,8 +23,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
+    self.calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+   
     [self initPicker];
-//    [self initTableView];
+    [self initTableView];
+}
+
+-(void) viewWillAppear:(BOOL)animated
+{
+   [super viewWillAppear:animated];
+   [self loadDateDataIntoArray];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +61,84 @@
 {
     self.tableView.dataSource = self;
     self.tableView.delegate   = self;
+}
+
+#pragma mark - load date data into dictionary
+
+-(void) createCellWithMinuteOffset:(NSInteger) offset andLabel:(NSString*) label
+{
+   NSDate* now = [NSDate date];
+   UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"mhpretty"];
+   
+   NSDateComponents* comps = [[NSDateComponents alloc] init];
+   [comps setMinute: offset];
+   NSDate* compareDate = [self.calendar dateByAddingComponents:comps toDate:now options:0];
+   
+   cell.detailTextLabel.text = [MHPrettyDate prettyDateFromDate:compareDate withFormat:self.dateFormat];
+   cell.textLabel.text       = label;
+   
+   [self.cellArray addObject:cell];
+}
+
+-(void) createCellWithHourOffset:(NSInteger) offset andLabel:(NSString*) label
+{
+   NSDate* now = [NSDate date];
+   UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"mhpretty"];
+   
+   NSDateComponents* comps = [[NSDateComponents alloc] init];
+   [comps setHour: offset];
+   NSDate* compareDate = [self.calendar dateByAddingComponents:comps toDate:now options:0];
+   
+   cell.detailTextLabel.text = [MHPrettyDate prettyDateFromDate:compareDate withFormat:self.dateFormat];
+   cell.textLabel.text       = label;
+   
+   [self.cellArray addObject:cell];
+}
+
+-(void) createCellWithDayOffset:(NSInteger) offset andLabel:(NSString*) label
+{
+   NSDate* now = [NSDate date];
+   UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"mhpretty"];
+   
+   NSDateComponents* comps = [[NSDateComponents alloc] init];
+   [comps setDay: offset];
+   NSDate* compareDate = [self.calendar dateByAddingComponents:comps toDate:now options:0];
+   
+   cell.detailTextLabel.text = [MHPrettyDate prettyDateFromDate:compareDate withFormat:self.dateFormat];
+   cell.textLabel.text       = label;
+   
+   [self.cellArray addObject:cell];
+}
+
+-(void) loadDateDataIntoArray
+{
+   // refresh everytime so now always == now
+   self.cellArray  = [[NSMutableArray alloc] init];
+   
+   [self createCellWithDayOffset:7 andLabel:@"next week"];
+   [self createCellWithDayOffset:1 andLabel:@"tomorrow"];
+   [self createCellWithDayOffset:0 andLabel:@"now"];
+
+   [self createCellWithMinuteOffset:-1 andLabel:@"minute ago"];
+   [self createCellWithMinuteOffset:-3 andLabel:@"3 minutes ago"];
+   [self createCellWithMinuteOffset:-15 andLabel:@"15 minutes ago"];
+   [self createCellWithMinuteOffset:-45 andLabel:@"45 minutes ago"];
+   
+   [self createCellWithHourOffset:-1 andLabel:@"hour ago"];
+   [self createCellWithHourOffset:-3 andLabel:@"3 hours ago"];
+   [self createCellWithHourOffset:-15 andLabel:@"15 hours ago"];
+   [self createCellWithHourOffset:-23 andLabel:@"23 hours ago"];
+   
+   [self createCellWithDayOffset:-1 andLabel:@"yesterday"];
+   [self createCellWithDayOffset:-2 andLabel:@"2 days ago"];
+   [self createCellWithDayOffset:-3 andLabel:@"3 days ago"];
+   [self createCellWithDayOffset:-4 andLabel:@"4 days ago"];
+   [self createCellWithDayOffset:-5 andLabel:@"5 days ago"];
+   [self createCellWithDayOffset:-6 andLabel:@"6 days ago"];
+   [self createCellWithDayOffset:-7 andLabel:@"week ago"];
+   [self createCellWithDayOffset:-45 andLabel:@"45 days ago"];
+   
+   [self.tableView reloadData];
 }
 
 #pragma mark - picker view data source
@@ -103,32 +192,23 @@
     return formatLabel;
 }
 
-//-(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-//{
-//    NSString* formatString;
-//    
-//    switch (row)
-//    {
-//        case MHPrettyDateFormatWithTime:
-//            formatString = @"MHPrettyDateFormatWithTime";
-//            break;
-//        case MHPrettyDateFormatNoTime:
-//            formatString = @"MHPrettyDateFormatNoTime";
-//            break;
-//        case MHPrettyDateLongFormatWithTime:
-//            formatString = @"MHPrettyDateLongFormatWithTime";
-//            break;
-//        case MHPrettyDateLongRelativeTime:
-//            formatString = @"MHPrettyDateLongRelativeTime";
-//            break;
-//        case MHPrettyDateShortRelativeTime:
-//            formatString = @"MHPrettyDateShortRelativeTime";
-//            break;
-//        default:
-//            formatString = @"bad row number";
-//            break;
-//    }
-//    return formatString;
-//}
+
+-(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+   self.dateFormat = row;
+   [self loadDateDataIntoArray];
+}
+
+#pragma mark - tableview data source
+
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+   return [self.cellArray count];
+}
+
+-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+   return ((UITableViewCell*) self.cellArray[indexPath.row]);
+ }
 
 @end
