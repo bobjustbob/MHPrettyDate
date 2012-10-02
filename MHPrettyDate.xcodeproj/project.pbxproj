@@ -19,6 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		E93DEE71161AD593005B9E19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E93DEE6D161AD591005B9E19 /* MHPrettyDateExampleApp.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E93DEE46161AD591005B9E19;
+			remoteInfo = MHPrettyDateExampleApp;
+		};
 		E9DC161015FBDF2600C594E6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E9DC15F015FBDF2600C594E6 /* Project object */;
@@ -42,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E93DEE6D161AD591005B9E19 /* MHPrettyDateExampleApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHPrettyDateExampleApp.xcodeproj; path = MHPrettyDateExampleApp/MHPrettyDateExampleApp.xcodeproj; sourceTree = "<group>"; };
 		E9DC15F915FBDF2600C594E6 /* libMHPrettyDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMHPrettyDate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC15FC15FBDF2600C594E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E9DC160015FBDF2600C594E6 /* MHPrettyDate-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MHPrettyDate-Prefix.pch"; sourceTree = "<group>"; };
@@ -79,9 +87,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E93DEE6E161AD591005B9E19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E93DEE72161AD593005B9E19 /* MHPrettyDateExampleApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E9DC15EE15FBDF2600C594E6 = {
 			isa = PBXGroup;
 			children = (
+				E93DEE6D161AD591005B9E19 /* MHPrettyDateExampleApp.xcodeproj */,
 				E9DC15FE15FBDF2600C594E6 /* MHPrettyDate */,
 				E9DC161315FBDF2600C594E6 /* MHPrettyDateTests */,
 				E9DC15FB15FBDF2600C594E6 /* Frameworks */,
@@ -203,6 +220,12 @@
 			mainGroup = E9DC15EE15FBDF2600C594E6;
 			productRefGroup = E9DC15FA15FBDF2600C594E6 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E93DEE6E161AD591005B9E19 /* Products */;
+					ProjectRef = E93DEE6D161AD591005B9E19 /* MHPrettyDateExampleApp.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E9DC15F815FBDF2600C594E6 /* MHPrettyDate */,
@@ -210,6 +233,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E93DEE72161AD593005B9E19 /* MHPrettyDateExampleApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = MHPrettyDateExampleApp.app;
+			remoteRef = E93DEE71161AD593005B9E19 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E9DC160715FBDF2600C594E6 /* Resources */ = {
