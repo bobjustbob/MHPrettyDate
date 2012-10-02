@@ -129,7 +129,6 @@
    switch (dateFormat) {
       case MHPrettyDateFormatWithTime:
       case MHPrettyDateFormatNoTime:
-      case MHPrettyDateLongFormatWithTime:
          dateString = [MHPrettyDate formattedStringForDate:date withFormat:dateFormat];
          break;
          

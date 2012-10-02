@@ -136,7 +136,7 @@
    [self createCellWithDayOffset:-5 andLabel:@"5 days ago"];
    [self createCellWithDayOffset:-6 andLabel:@"6 days ago"];
    [self createCellWithDayOffset:-7 andLabel:@"week ago"];
-   [self createCellWithDayOffset:-45 andLabel:@"45 days ago"];
+   [self createCellWithDayOffset:-45 andLabel:@"45 days ago="];
    
    [self.tableView reloadData];
 }
@@ -150,7 +150,7 @@
 
 -(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 5;
+    return 4;
 }
 
 #pragma mark - picker view delegate
@@ -174,9 +174,6 @@
             break;
         case MHPrettyDateFormatNoTime:
             formatLabel.text = @"MHPrettyDateFormatNoTime";
-            break;
-        case MHPrettyDateLongFormatWithTime:
-            formatLabel.text = @"MHPrettyDateLongFormatWithTime";
             break;
         case MHPrettyDateLongRelativeTime:
             formatLabel.text = @"MHPrettyDateLongRelativeTime";
