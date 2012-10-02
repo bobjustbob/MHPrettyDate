@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (assign, nonatomic) MHPrettyDateFormat dateFormat;
+
 @end
 
 @implementation ViewController
@@ -39,6 +41,7 @@
 
 -(void) initPicker
 {
+    self.dateFormat              = MHPrettyDateFormatWithTime;
     self.formatPicker.dataSource = self;
     self.formatPicker.delegate   = self;
 }
@@ -63,32 +66,69 @@
 
 #pragma mark - picker view delegate
 
--(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
-    NSString* formatString;
+    UILabel* formatLabel = (UILabel*) view;
+    
+    if (!formatLabel)
+    {
+        formatLabel      = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0,
+                                [pickerView rowSizeForComponent:component].width,
+                                [pickerView rowSizeForComponent:component].height)];
+        formatLabel.font = [UIFont boldSystemFontOfSize:16.0];
+    }
     
     switch (row)
     {
         case MHPrettyDateFormatWithTime:
-            formatString = @"MHPrettyDateFormatWithTime";
+            formatLabel.text = @"MHPrettyDateFormatWithTime";
             break;
         case MHPrettyDateFormatNoTime:
-            formatString = @"MHPrettyDateFormatNoTime";
+            formatLabel.text = @"MHPrettyDateFormatNoTime";
             break;
         case MHPrettyDateLongFormatWithTime:
-            formatString = @"MHPrettyDateLongFormatWithTime";
+            formatLabel.text = @"MHPrettyDateLongFormatWithTime";
             break;
         case MHPrettyDateLongRelativeTime:
-            formatString = @"MHPrettyDateLongRelativeTime";
+            formatLabel.text = @"MHPrettyDateLongRelativeTime";
             break;
         case MHPrettyDateShortRelativeTime:
-            formatString = @"MHPrettyDateShortRelativeTime";
+            formatLabel.text = @"MHPrettyDateShortRelativeTime";
             break;
         default:
-            formatString = @"bad row number";
+            formatLabel.text = @"bad row number";
             break;
     }
-    return formatString;
+    
+    return formatLabel;
 }
+
+//-(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+//{
+//    NSString* formatString;
+//    
+//    switch (row)
+//    {
+//        case MHPrettyDateFormatWithTime:
+//            formatString = @"MHPrettyDateFormatWithTime";
+//            break;
+//        case MHPrettyDateFormatNoTime:
+//            formatString = @"MHPrettyDateFormatNoTime";
+//            break;
+//        case MHPrettyDateLongFormatWithTime:
+//            formatString = @"MHPrettyDateLongFormatWithTime";
+//            break;
+//        case MHPrettyDateLongRelativeTime:
+//            formatString = @"MHPrettyDateLongRelativeTime";
+//            break;
+//        case MHPrettyDateShortRelativeTime:
+//            formatString = @"MHPrettyDateShortRelativeTime";
+//            break;
+//        default:
+//            formatString = @"bad row number";
+//            break;
+//    }
+//    return formatString;
+//}
 
 @end
