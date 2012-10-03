@@ -126,9 +126,11 @@
 {
    NSString* dateString;
    
-   switch (dateFormat) {
+   switch (dateFormat)
+   {
       case MHPrettyDateFormatWithTime:
       case MHPrettyDateFormatNoTime:
+      case MHPrettyDateFormatTodayTimeOnly:
          dateString = [MHPrettyDate formattedStringForDate:date withFormat:dateFormat];
          break;
          
@@ -209,6 +211,7 @@
    return dateString;
 }
 
+// TODO: this method needs to be refactored and localized
 +(NSString*) formattedStringForDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat
 {
     NSString*        dateString;
@@ -236,15 +239,28 @@
             dateString = @"EEEE";
         }
         
+        // special case for MHPrettyDateFormatWithTime
         if (dateFormat == MHPrettyDateFormatWithTime)
         {
+            // today show only time
             if ([MHPrettyDate isToday:date])
             {
-                dateString = @"h:mm a";
+               dateString = @"h:mm a";
             }
             else
             {
-            dateString = [NSString stringWithFormat:@"%@ h:mm a", dateString];
+               // otherwise show date string and time
+               dateString = [NSString stringWithFormat:@"%@ h:mm a", dateString];
+            }
+        }
+        
+        // special case for MHPrettyDateFormatTodayTimeOnly
+        if (dateFormat == MHPrettyDateFormatTodayTimeOnly)
+        {
+            // today show only time
+            if ([MHPrettyDate isToday:date])
+            {
+                dateString = @"h:mm a";
             }
         }
     }
@@ -268,9 +284,12 @@
 
 #pragma mark - accessors
 
+// TODO: these methods can be refactored
+
 //
 // today is read/write (write is for testing only)
 //
+
 -(NSDate*) today
 {
     if (!_today)

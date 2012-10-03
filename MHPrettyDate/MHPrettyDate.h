@@ -47,6 +47,16 @@ typedef enum
     //     1 week ago:   09/23/12
     //     1 week later: 10/07/12
     //
+    MHPrettyDateFormatTodayTimeOnly,
+    //
+    //  EXAMPLE:  if today is September 30, 2012 and the time is 12:58 PM
+    //     Today:        12:58 PM
+    //     Tomorrow:     Tomorrow
+    //     Yesterday:    Yesterday
+    //     2 days ago:   Friday
+    //     1 week ago:   09/23/12
+    //     1 week later: 10/07/12
+    //
     MHPrettyDateLongRelativeTime,
     //
     //  EXAMPLES:

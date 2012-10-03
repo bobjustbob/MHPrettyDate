@@ -17,7 +17,7 @@
                                     <constraint firstAttribute="height" constant="180" type="user" id="Mbe-De-UBM"/>
                                 </constraints>
                             </pickerView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eLf-eh-egP">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eLf-eh-egP">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="278" id="mIJ-Og-1DG"/>
@@ -34,6 +34,8 @@
                             <constraint firstItem="eLf-eh-egP" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="jS5-oT-CKP"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <connections>
                         <outlet property="formatPicker" destination="aEs-GQ-BA5" id="SRW-n1-Kdj"/>
                         <outlet property="tableView" destination="eLf-eh-egP" id="uJU-lY-vLL"/>

@@ -19,7 +19,8 @@
 
 @implementation ViewController
 
-#pragma mark - lifecycle
+#pragma mark - life cycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -33,7 +34,7 @@
 -(void) viewWillAppear:(BOOL)animated
 {
    [super viewWillAppear:animated];
-   [self loadDateDataIntoArray];
+   [self reloadTableViewData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,33 +111,33 @@
    [self.cellArray addObject:cell];
 }
 
--(void) loadDateDataIntoArray
+-(void) reloadTableViewData
 {
    // refresh everytime so now always == now
    self.cellArray  = [[NSMutableArray alloc] init];
    
-   [self createCellWithDayOffset:7 andLabel:@"next week"];
-   [self createCellWithDayOffset:1 andLabel:@"tomorrow"];
-   [self createCellWithDayOffset:0 andLabel:@"now"];
+   [self createCellWithDayOffset:7      andLabel:@"Next week"];
+   [self createCellWithDayOffset:1      andLabel:@"Tomorrow"];
+   [self createCellWithDayOffset:0      andLabel:@"Now"];
 
-   [self createCellWithMinuteOffset:-1 andLabel:@"minute ago"];
-   [self createCellWithMinuteOffset:-3 andLabel:@"3 minutes ago"];
+   [self createCellWithMinuteOffset:-1  andLabel:@"1 minute ago"];
+   [self createCellWithMinuteOffset:-3  andLabel:@"3 minutes ago"];
    [self createCellWithMinuteOffset:-15 andLabel:@"15 minutes ago"];
    [self createCellWithMinuteOffset:-45 andLabel:@"45 minutes ago"];
    
-   [self createCellWithHourOffset:-1 andLabel:@"hour ago"];
-   [self createCellWithHourOffset:-3 andLabel:@"3 hours ago"];
-   [self createCellWithHourOffset:-15 andLabel:@"15 hours ago"];
-   [self createCellWithHourOffset:-23 andLabel:@"23 hours ago"];
+   [self createCellWithHourOffset:-1    andLabel:@"An hour ago"];
+   [self createCellWithHourOffset:-3    andLabel:@"3 hours ago"];
+   [self createCellWithHourOffset:-15   andLabel:@"15 hours ago"];
+   [self createCellWithHourOffset:-23   andLabel:@"23 hours ago"];
    
-   [self createCellWithDayOffset:-1 andLabel:@"yesterday"];
-   [self createCellWithDayOffset:-2 andLabel:@"2 days ago"];
-   [self createCellWithDayOffset:-3 andLabel:@"3 days ago"];
-   [self createCellWithDayOffset:-4 andLabel:@"4 days ago"];
-   [self createCellWithDayOffset:-5 andLabel:@"5 days ago"];
-   [self createCellWithDayOffset:-6 andLabel:@"6 days ago"];
-   [self createCellWithDayOffset:-7 andLabel:@"week ago"];
-   [self createCellWithDayOffset:-45 andLabel:@"45 days ago="];
+   [self createCellWithDayOffset:-1     andLabel:@"Yesterday"];
+   [self createCellWithDayOffset:-2     andLabel:@"2 days ago"];
+   [self createCellWithDayOffset:-3     andLabel:@"3 days ago"];
+   [self createCellWithDayOffset:-4     andLabel:@"4 days ago"];
+   [self createCellWithDayOffset:-5     andLabel:@"5 days ago"];
+   [self createCellWithDayOffset:-6     andLabel:@"6 days ago"];
+   [self createCellWithDayOffset:-7     andLabel:@"A week ago"];
+   [self createCellWithDayOffset:-45    andLabel:@"45 days ago"];
    
    [self.tableView reloadData];
 }
@@ -145,12 +146,12 @@
 
 -(NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 1;
+   return 1;
 }
 
 -(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 4;
+   return 5;
 }
 
 #pragma mark - picker view delegate
@@ -162,8 +163,8 @@
     if (!formatLabel)
     {
         formatLabel      = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0,
-                                [pickerView rowSizeForComponent:component].width,
-                                [pickerView rowSizeForComponent:component].height)];
+                                                          [pickerView rowSizeForComponent:component].width,
+                                                          [pickerView rowSizeForComponent:component].height)];
         formatLabel.font = [UIFont boldSystemFontOfSize:16.0];
     }
     
@@ -174,6 +175,9 @@
             break;
         case MHPrettyDateFormatNoTime:
             formatLabel.text = @"MHPrettyDateFormatNoTime";
+            break;
+        case MHPrettyDateFormatTodayTimeOnly:
+            formatLabel.text = @"MHPrettyDateFormatTodayTimeOnly";
             break;
         case MHPrettyDateLongRelativeTime:
             formatLabel.text = @"MHPrettyDateLongRelativeTime";
@@ -193,7 +197,7 @@
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
    self.dateFormat = row;
-   [self loadDateDataIntoArray];
+   [self reloadTableViewData];
 }
 
 #pragma mark - tableview data source
