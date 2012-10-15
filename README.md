@@ -8,7 +8,6 @@ An iOS framework that provides a simple mechanism to get  "Pretty Dates" ("Yeste
 ``` objective-c
 
 #import "MHPrettyDate.h"
-
 ```
 
 
@@ -108,6 +107,12 @@ typedef enum
 
 - Supports iOS 5.1 and higher
 - ARC enabled projects only
+
+
+## Usage
+
+Refer to example appliction MHPrettyDateExampleApp for usage strategies.
+
 
 ## Credits
 
