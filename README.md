@@ -95,3 +95,16 @@ typedef enum
 @end
 ```
 
+## Requirements
+
+- Supports iOS 5.1 and higher
+- ARC enabled projects only
+
+## Credits
+
+MHPrettyDates was created by Bobby Williams (bjackw@mac.com)
+
+## License
+
+MHPrettyDate is available under the MIT license. See the LICENSE file for more info.
+
