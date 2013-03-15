@@ -174,12 +174,12 @@
          
          if (minutes == 0)
          {
-            dateString = @"Now";
+            dateString = NSLocalizedStringFromTable(@"Now", @"MHPrettyDate", nil);
          }
          else
          {
-            if (minutes == 1) post = (dateFormat == MHPrettyDateLongRelativeTime) ? @" minute ago" : @"m";
-            else post = (dateFormat == MHPrettyDateLongRelativeTime) ? @" minutes ago" : @"m";
+            if (minutes == 1) post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" minute ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"m", @"MHPrettyDate", nil);
+            else post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" minutes ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"m", @"MHPrettyDate", nil);
             dateString = [NSString stringWithFormat: @"%d%@", minutes, post];
          }
       }
@@ -189,14 +189,14 @@
          NSInteger hours = [prettyDate hoursFromNow: date] * -1;
          NSString  *post;
          
-         if (hours == 1) post = (dateFormat == MHPrettyDateLongRelativeTime) ? @" hour ago" : @"h";
-         else post = (dateFormat == MHPrettyDateLongRelativeTime) ? @" hours ago" : @"h";
+         if (hours == 1) post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" hour ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"h", @"MHPrettyDate", nil);
+         else post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" hours ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"h", @"MHPrettyDate", nil);
          dateString = [NSString stringWithFormat: @"%d%@", hours, post];
       }
    }
    else if ([MHPrettyDate isYesterday:date])
    {
-      dateString = (dateFormat == MHPrettyDateLongRelativeTime) ? @"1 day ago" : @"1d";
+      dateString = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@"1 day ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"1d", @"MHPrettyDate", nil);
    }
    else
    {
@@ -204,7 +204,7 @@
       NSInteger days = [prettyDate daysFromNow: date] * -1;
       NSString  *post;
       
-      post = (dateFormat == MHPrettyDateLongRelativeTime) ? @" days ago" : @"d";
+      post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" days ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"d", @"MHPrettyDate", nil);
       dateString = [NSString stringWithFormat: @"%d%@", days, post];
    }
    
@@ -234,15 +234,15 @@
     {
         if ([MHPrettyDate isTomorrow:date])
         {
-            dateString = @"'Tomorrow'";
+            dateString = NSLocalizedStringFromTable(@"'Tomorrow'", @"MHPrettyDate", @"This value is used in a DateFormat, the single quotes are important.");
         }
         else if ([MHPrettyDate isToday:date])
         {
-            dateString = @"'Today'";
+            dateString = NSLocalizedStringFromTable(@"'Today'", @"MHPrettyDate", @"This value is used in a DateFormat, the single quotes are important.");
         }
         else if ([MHPrettyDate isYesterday:date])
         {
-            dateString = @"'Yesterday'";
+            dateString = NSLocalizedStringFromTable(@"'Yesterday'", @"MHPrettyDate", @"This value is used in a DateFormat, the single quotes are important.");
         }
         else
         {
