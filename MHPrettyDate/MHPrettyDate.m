@@ -122,7 +122,7 @@
     return [date1 isEqualToDate:date2];
 }
 
-+(NSString*) makePrettyDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat
++(NSString*) makePrettyDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat withDateStyle:(NSDateFormatterStyle) dateStyle withTimeStyle:(NSDateFormatterStyle)timeStyle
 {
    NSString* dateString;
    
@@ -131,7 +131,7 @@
       case MHPrettyDateFormatWithTime:
       case MHPrettyDateFormatNoTime:
       case MHPrettyDateFormatTodayTimeOnly:
-         dateString = [MHPrettyDate formattedStringForDate:date withFormat:dateFormat];
+         dateString = [MHPrettyDate formattedStringForDate:date withFormat:dateFormat withDateStyle:dateStyle withTimeStyle:timeStyle];
          break;
          
       case MHPrettyDateLongRelativeTime:
@@ -211,8 +211,18 @@
    return dateString;
 }
 
-// TODO: this method needs to be refactored and localized
 +(NSString*) formattedStringForDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat
+{
+    return [MHPrettyDate formattedStringForDate:date withFormat:dateFormat withDateStyle:NSDateFormatterShortStyle withTimeStyle:NSDateFormatterShortStyle];
+}
+
++(NSString*) formattedStringForDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat withDateStyle:(NSDateFormatterStyle) dateStyle
+{
+    return [MHPrettyDate formattedStringForDate:date withFormat:dateFormat withDateStyle:dateStyle withTimeStyle:NSDateFormatterShortStyle];
+}
+
+// TODO: this method needs to be refactored and localized
++(NSString*) formattedStringForDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat withDateStyle:(NSDateFormatterStyle) dateStyle withTimeStyle:(NSDateFormatterStyle) timeStyle
 {
     NSString*        dateString;
     NSDateFormatter* formatter   = [[NSDateFormatter alloc] init];
@@ -263,22 +273,19 @@
                 dateString = @"h:mm a";
             }
         }
+
+        [formatter setDateFormat: dateString];
+        return [formatter stringFromDate:date];
+    }
+    else if (dateFormat == MHPrettyDateFormatWithTime)
+    {
+        return [NSDateFormatter localizedStringFromDate:date dateStyle:dateStyle timeStyle:timeStyle];
+        
     }
     else
     {
-        if (dateFormat == MHPrettyDateFormatWithTime)
-        {
-            dateString = @"MM/dd/yy h:mm a"; // bjw bugbugbug need to localize
-        }
-        else
-        {
-            dateString = [NSDateFormatter dateFormatFromTemplate:@"MMddyy" options:0 locale:[NSLocale currentLocale]];
-        }
-    }
-    
-    [formatter setDateFormat: dateString];
-    
-    return [formatter stringFromDate:date];
+        return [NSDateFormatter localizedStringFromDate:date dateStyle:dateStyle timeStyle:NSDateFormatterNoStyle];
+    }    
 }
 
 
@@ -359,7 +366,17 @@
 
 +(NSString*) prettyDateFromDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat
 {
-    return [MHPrettyDate makePrettyDate:date withFormat:dateFormat];
+    return [MHPrettyDate makePrettyDate:date withFormat:dateFormat withDateStyle:NSDateFormatterShortStyle withTimeStyle:NSDateFormatterShortStyle];
+}
+
++(NSString*) prettyDateFromDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat withDateStyle:(NSDateFormatterStyle) dateStyle
+{
+    return [MHPrettyDate makePrettyDate:date withFormat:dateFormat withDateStyle:dateStyle withTimeStyle:NSDateFormatterShortStyle];
+}
+
++(NSString*) prettyDateFromDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat withDateStyle:(NSDateFormatterStyle) dateStyle withTimeStyle:(NSDateFormatterStyle) timeStyle
+{
+    return [MHPrettyDate makePrettyDate:date withFormat:dateFormat withDateStyle:dateStyle withTimeStyle:timeStyle];
 }
 
 +(BOOL) willMakePretty:(NSDate *)date
