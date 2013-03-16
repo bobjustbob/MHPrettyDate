@@ -227,9 +227,6 @@
     NSString*        dateString;
     NSDateFormatter* formatter   = [[NSDateFormatter alloc] init];
     
-    //
-    // TODO: this needs to be localized
-    //
     if ([MHPrettyDate willMakePretty:date])
     {
         if ([MHPrettyDate isTomorrow:date])
