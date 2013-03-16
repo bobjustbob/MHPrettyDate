@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CCEAF12516F3305C0049549E /* MHPrettyDate.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCEAF12116F328480049549E /* MHPrettyDate.strings */; };
+		CCEAF12B16F3354E0049549E /* MHPrettyDate.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCEAF12116F328480049549E /* MHPrettyDate.strings */; };
 		E9DC15FD15FBDF2600C594E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC15FC15FBDF2600C594E6 /* Foundation.framework */; };
 		E9DC160215FBDF2600C594E6 /* MHPrettyDate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9DC160115FBDF2600C594E6 /* MHPrettyDate.h */; };
 		E9DC160415FBDF2600C594E6 /* MHPrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC160315FBDF2600C594E6 /* MHPrettyDate.m */; };
@@ -49,6 +51,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CCEAF12016F328480049549E /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/MHPrettyDate.strings; sourceTree = "<group>"; };
+		CCEAF12216F329270049549E /* nl */ = {isa = PBXFileReference; lastKnownFileType = file; name = nl; path = nl.lproj/MHPrettyDate.strings; sourceTree = "<group>"; };
 		E93DEE6D161AD591005B9E19 /* MHPrettyDateExampleApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHPrettyDateExampleApp.xcodeproj; path = MHPrettyDateExampleApp/MHPrettyDateExampleApp.xcodeproj; sourceTree = "<group>"; };
 		E9DC15F915FBDF2600C594E6 /* libMHPrettyDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMHPrettyDate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC15FC15FBDF2600C594E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,6 +134,7 @@
 			children = (
 				E9DC160115FBDF2600C594E6 /* MHPrettyDate.h */,
 				E9DC160315FBDF2600C594E6 /* MHPrettyDate.m */,
+				CCEAF12116F328480049549E /* MHPrettyDate.strings */,
 				E9DC15FF15FBDF2600C594E6 /* Supporting Files */,
 			);
 			path = MHPrettyDate;
@@ -172,6 +177,7 @@
 				E9DC15F515FBDF2600C594E6 /* Sources */,
 				E9DC15F615FBDF2600C594E6 /* Frameworks */,
 				E9DC15F715FBDF2600C594E6 /* CopyFiles */,
+				CCEAF12A16F3353D0049549E /* Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +222,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				nl,
 			);
 			mainGroup = E9DC15EE15FBDF2600C594E6;
 			productRefGroup = E9DC15FA15FBDF2600C594E6 /* Products */;
@@ -245,11 +252,20 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CCEAF12A16F3353D0049549E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCEAF12B16F3354E0049549E /* MHPrettyDate.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E9DC160715FBDF2600C594E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				E9DC161815FBDF2600C594E6 /* InfoPlist.strings in Resources */,
+				CCEAF12516F3305C0049549E /* MHPrettyDate.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +315,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		CCEAF12116F328480049549E /* MHPrettyDate.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCEAF12016F328480049549E /* en */,
+				CCEAF12216F329270049549E /* nl */,
+			);
+			name = MHPrettyDate.strings;
+			sourceTree = "<group>";
+		};
 		E9DC161615FBDF2600C594E6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
