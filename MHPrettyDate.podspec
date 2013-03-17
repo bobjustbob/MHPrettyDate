@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/bobjustbob/MHPrettyDate.git", :tag => "v1.0.1" }
   s.platform     = :ios, '5.0'
   s.source_files = 'MHPrettyDate/**/*.{h,m}'
+  s.resources    = "#{s.name}/**/*.{lproj}"
   s.requires_arc = true
   s.framework  = 'Foundation'
 end
