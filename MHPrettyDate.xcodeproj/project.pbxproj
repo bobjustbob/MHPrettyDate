@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CCEAF12516F3305C0049549E /* MHPrettyDate.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCEAF12116F328480049549E /* MHPrettyDate.strings */; };
 		CCEAF12B16F3354E0049549E /* MHPrettyDate.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCEAF12116F328480049549E /* MHPrettyDate.strings */; };
+		D0F36A7A1799BE2D00F76C70 /* NSDate+Mock.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F36A781799BE2C00F76C70 /* NSDate+Mock.m */; };
 		E9DC15FD15FBDF2600C594E6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9DC15FC15FBDF2600C594E6 /* Foundation.framework */; };
 		E9DC160215FBDF2600C594E6 /* MHPrettyDate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = E9DC160115FBDF2600C594E6 /* MHPrettyDate.h */; };
 		E9DC160415FBDF2600C594E6 /* MHPrettyDate.m in Sources */ = {isa = PBXBuildFile; fileRef = E9DC160315FBDF2600C594E6 /* MHPrettyDate.m */; };
@@ -51,8 +52,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CCEAF12016F328480049549E /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/MHPrettyDate.strings; sourceTree = "<group>"; };
-		CCEAF12216F329270049549E /* nl */ = {isa = PBXFileReference; lastKnownFileType = file; name = nl; path = nl.lproj/MHPrettyDate.strings; sourceTree = "<group>"; };
+		CCEAF12016F328480049549E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MHPrettyDate.strings; sourceTree = "<group>"; };
+		CCEAF12216F329270049549E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MHPrettyDate.strings; sourceTree = "<group>"; };
+		D0F36A781799BE2C00F76C70 /* NSDate+Mock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Mock.m"; sourceTree = "<group>"; };
+		D0F36A791799BE2D00F76C70 /* NSDate+Mock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Mock.h"; sourceTree = "<group>"; };
 		E93DEE6D161AD591005B9E19 /* MHPrettyDateExampleApp.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MHPrettyDateExampleApp.xcodeproj; path = MHPrettyDateExampleApp/MHPrettyDateExampleApp.xcodeproj; sourceTree = "<group>"; };
 		E9DC15F915FBDF2600C594E6 /* libMHPrettyDate.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMHPrettyDate.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9DC15FC15FBDF2600C594E6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -151,6 +154,8 @@
 		E9DC161315FBDF2600C594E6 /* MHPrettyDateTests */ = {
 			isa = PBXGroup;
 			children = (
+				D0F36A781799BE2C00F76C70 /* NSDate+Mock.m */,
+				D0F36A791799BE2D00F76C70 /* NSDate+Mock.h */,
 				E9DC161915FBDF2600C594E6 /* MHPrettyDateTests.h */,
 				E9DC161A15FBDF2600C594E6 /* MHPrettyDateTests.m */,
 				E9DC161415FBDF2600C594E6 /* Supporting Files */,
@@ -301,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9DC161B15FBDF2600C594E6 /* MHPrettyDateTests.m in Sources */,
+				D0F36A7A1799BE2D00F76C70 /* NSDate+Mock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

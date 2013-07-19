@@ -67,6 +67,14 @@
     return _singleton;
 }
 
+- (void)clearCache
+{
+    _tomorrow = nil;
+    _today = nil;
+    _yesterday = nil;
+    _weekAgo = nil;
+}
+
 #pragma mark - worker methods
 
 // this is a worker method
@@ -294,8 +302,16 @@
 // today is read/write (write is for testing only)
 //
 
+- (void)sanitize
+{
+    if (![self isSameDay:_today as:[NSDate date]]) {
+        [self clearCache];
+    }
+}
+
 -(NSDate*) today
 {
+    [self sanitize];
     if (!_today)
     {
         _today = [self normalizeDate:[NSDate date]];
@@ -306,6 +322,7 @@
 // yesterday is today minus 1 day
 -(NSDate*) yesterday
 {
+    [self sanitize];
     if (!_yesterday)
     {
         NSDateComponents* comps = [[NSDateComponents alloc] init];
@@ -318,6 +335,7 @@
 // yesterday is today minus 1 day
 -(NSDate*) weekAgo
 {
+    [self sanitize];
     if (!_weekAgo)
     {
         NSDateComponents* comps = [[NSDateComponents alloc] init];
@@ -330,6 +348,7 @@
 // tomorrow is today plus 1 day
 -(NSDate*) tomorrow
 {
+    [self sanitize];
     if (!_tomorrow)
     {
         NSDateComponents* comps = [[NSDateComponents alloc] init];
