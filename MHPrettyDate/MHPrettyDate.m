@@ -304,8 +304,10 @@
 
 - (void)sanitize
 {
-    if (![self isSameDay:_today as:[NSDate date]]) {
-        [self clearCache];
+    if (_today) {
+        if (![self isSameDay:_today as:[NSDate date]]) {
+            [self clearCache];
+        }
     }
 }
 
