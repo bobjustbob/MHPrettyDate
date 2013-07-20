@@ -25,6 +25,7 @@
 
 #import "MHPrettyDateTests.h"
 #import "MHPrettyDate.h"
+#import "NSDate+Mock.h"
 
 //@implementation MHPrettyDate (Testing)
 //@end
@@ -91,6 +92,48 @@ static NSCalendar* __sCalendar;
     STAssertFalse([MHPrettyDate isPastDate:compareDate], nil);
    
    [self printDate: compareDate];
+}
+
+- (void)testCompareOverDateChange
+{
+    NSDate* now = [NSDate date];
+    
+    NSDateComponents* comps = [[NSDateComponents alloc] init];
+    [comps setDay: 1];
+    NSDate* compareDate = [__sCalendar dateByAddingComponents:comps toDate:now options:0];
+    
+    NSLog(@"tomorrow is %@", compareDate);
+    
+    STAssertFalse([MHPrettyDate isToday:compareDate], nil);
+    STAssertTrue([MHPrettyDate isTomorrow: compareDate], nil);
+    STAssertFalse([MHPrettyDate isYesterday: compareDate], nil);
+    STAssertTrue([MHPrettyDate willMakePretty:compareDate], nil);
+    STAssertTrue([MHPrettyDate isFutureDate:compareDate], nil);
+    STAssertFalse([MHPrettyDate isPastDate:compareDate], nil);
+
+    // Bump the current date.
+
+    [NSDate setMockDate:compareDate];
+    
+    STAssertTrue([MHPrettyDate isToday:compareDate], nil);
+    STAssertFalse([MHPrettyDate isTomorrow: compareDate], nil);
+    STAssertFalse([MHPrettyDate isYesterday: compareDate], nil);
+    STAssertTrue([MHPrettyDate willMakePretty:compareDate], nil);
+    STAssertFalse([MHPrettyDate isFutureDate:compareDate], nil);
+    STAssertFalse([MHPrettyDate isPastDate:compareDate], nil);
+
+    [NSDate setMockDate:[__sCalendar dateByAddingComponents:comps toDate:[NSDate date] options:0]];
+
+    // Bump it again.
+
+    STAssertFalse([MHPrettyDate isToday:compareDate], nil);
+    STAssertFalse([MHPrettyDate isTomorrow: compareDate], nil);
+    STAssertTrue([MHPrettyDate isYesterday: compareDate], nil);
+    STAssertTrue([MHPrettyDate willMakePretty:compareDate], nil);
+    STAssertFalse([MHPrettyDate isFutureDate:compareDate], nil);
+    STAssertTrue([MHPrettyDate isPastDate:compareDate], nil);
+    
+    [NSDate setMockDate:nil];
 }
 
 - (void)testCompareYesterday
