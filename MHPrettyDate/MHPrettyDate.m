@@ -298,10 +298,6 @@
 
 // TODO: these methods can be refactored
 
-//
-// today is read/write (write is for testing only)
-//
-
 - (void)sanitize
 {
     if (_today) {
@@ -310,6 +306,10 @@
         }
     }
 }
+
+//
+// today is read/write (write is for testing only)
+//
 
 -(NSDate*) today
 {
