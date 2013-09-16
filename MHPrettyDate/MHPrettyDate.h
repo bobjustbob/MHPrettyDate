@@ -89,6 +89,8 @@ typedef enum
 
 @interface MHPrettyDate : NSObject
 
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
+
 +(NSString*) prettyDateFromDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat;
 +(NSString*) prettyDateFromDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat withDateStyle:(NSDateFormatterStyle) dateStyle;
 +(NSString*) prettyDateFromDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat withDateStyle:(NSDateFormatterStyle) dateStyle withTimeStyle:(NSDateFormatterStyle) timeStyle;

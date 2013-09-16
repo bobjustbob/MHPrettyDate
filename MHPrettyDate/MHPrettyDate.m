@@ -33,7 +33,6 @@
 @property (readonly, nonatomic) NSDate*            tomorrow;
 @property (readonly, nonatomic) NSDate*            weekAgo;
 @property (readonly, nonatomic) NSCalendar*        calendar;
-@property (strong, nonatomic)   NSDateFormatter*   dateFormatter;
 @property (assign)              MHPrettyDateFormat dateFormat;
 
 +(MHPrettyDate*) sharedInstance;
@@ -233,7 +232,7 @@
 +(NSString*) formattedStringForDate:(NSDate*) date withFormat:(MHPrettyDateFormat) dateFormat withDateStyle:(NSDateFormatterStyle) dateStyle withTimeStyle:(NSDateFormatterStyle) timeStyle
 {
     NSString*        dateString;
-    NSDateFormatter* formatter   = [[NSDateFormatter alloc] init];
+    NSDateFormatter* formatter = [[self sharedInstance] dateFormatter];
     
     if ([MHPrettyDate willMakePretty:date])
     {
