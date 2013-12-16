@@ -52,6 +52,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		75825D5B185EE3A100BB51F1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MHPrettyDate.strings"; sourceTree = "<group>"; };
+		75825D5D185EE3A700BB51F1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MHPrettyDate.strings"; sourceTree = "<group>"; };
 		CCEAF12016F328480049549E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MHPrettyDate.strings; sourceTree = "<group>"; };
 		CCEAF12216F329270049549E /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/MHPrettyDate.strings; sourceTree = "<group>"; };
 		D0F36A781799BE2C00F76C70 /* NSDate+Mock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Mock.m"; sourceTree = "<group>"; };
@@ -228,6 +230,8 @@
 			knownRegions = (
 				en,
 				nl,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = E9DC15EE15FBDF2600C594E6;
 			productRefGroup = E9DC15FA15FBDF2600C594E6 /* Products */;
@@ -326,6 +330,8 @@
 			children = (
 				CCEAF12016F328480049549E /* en */,
 				CCEAF12216F329270049549E /* nl */,
+				75825D5B185EE3A100BB51F1 /* zh-Hans */,
+				75825D5D185EE3A700BB51F1 /* zh-Hant */,
 			);
 			name = MHPrettyDate.strings;
 			sourceTree = "<group>";
