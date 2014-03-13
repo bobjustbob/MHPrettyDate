@@ -156,6 +156,14 @@ static NSCalendar* __sCalendar;
    [self printDate: compareDate];
 }
 
+- (void) testOneAndAHalfDayAgo
+{
+    NSDate* oneAndAHalfAgo = [[NSDate date] dateByAddingTimeInterval:-60*60*45];
+    NSString* prettyDate = [MHPrettyDate prettyDateFromDate:oneAndAHalfAgo withFormat:MHPrettyDateLongRelativeTime];
+    
+    STAssertTrue([prettyDate isEqualToString:@"1 day ago"], nil);
+}
+
 - (void)testCompareWithinWeek
 {
     NSDate* now = [NSDate date];
