@@ -211,9 +211,16 @@
       MHPrettyDate *prettyDate = [MHPrettyDate sharedInstance];
       NSInteger days = [prettyDate daysFromNow: date] * -1;
       NSString  *post;
-      
-      post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" days ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"d", @"MHPrettyDate", nil);
-      dateString = [NSString stringWithFormat: @"%d%@", days, post];
+       
+      if (days == 1)
+      {
+          dateString = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@"1 day ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"1d", @"MHPrettyDate", nil);
+      }
+      else
+      {
+          post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" days ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"d", @"MHPrettyDate", nil);
+          dateString = [NSString stringWithFormat: @"%d%@", days, post];
+      }
    }
    
    return dateString;
