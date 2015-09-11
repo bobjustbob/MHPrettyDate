@@ -210,7 +210,7 @@
 			name = MHPrettyDateTests;
 			productName = MHPrettyDateTests;
 			productReference = E9DC160A15FBDF2600C594E6 /* MHPrettyDateTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -392,6 +392,7 @@
 		E9DC161F15FBDF2600C594E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/MHPrettyDate.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MHPrettyDate/MHPrettyDate-Prefix.pch";
@@ -404,9 +405,11 @@
 		E9DC162015FBDF2600C594E6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				DSTROOT = /tmp/MHPrettyDate.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MHPrettyDate/MHPrettyDate-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

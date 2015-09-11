@@ -137,7 +137,7 @@
 		E93DEE3D161AD591005B9E19 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Bobby Williams";
 			};
 			buildConfigurationList = E93DEE40161AD591005B9E19 /* Build configuration list for PBXProject "MHPrettyDateExampleApp" */;
@@ -228,6 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
