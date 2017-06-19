@@ -81,8 +81,8 @@
 -(NSDate* ) normalizeDate:(NSDate*) date
 {
     NSDateComponents* dateComponents = [self.calendar
-                                        components: NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |
-                                        NSWeekdayCalendarUnit
+                                        components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |
+                                        NSCalendarUnitWeekday
                                         fromDate:  date];
     NSDate* returnDate = [self.calendar dateFromComponents:dateComponents];
     return returnDate;
@@ -91,8 +91,8 @@
 -(NSDate* ) normalizeTime:(NSDate*) date
 {
    NSDateComponents* dateComponents = [self.calendar
-                                         components: NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |
-                                                     NSHourCalendarUnit | NSMinuteCalendarUnit
+                                         components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |
+                                                     NSCalendarUnitHour | NSCalendarUnitMinute
                                            fromDate: date];
    NSDate* returnDate = [self.calendar dateFromComponents:dateComponents];
    return returnDate;
@@ -365,7 +365,7 @@
 {
     if (!_calendar)
     {
-       _calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+       _calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
     }
     return _calendar;
 }
