@@ -196,7 +196,7 @@
 
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-   self.dateFormat = row;
+   self.dateFormat = (MHPrettyDateFormat) row;
    [self reloadTableViewData];
 }
 

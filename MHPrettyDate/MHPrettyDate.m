@@ -81,8 +81,8 @@
 -(NSDate* ) normalizeDate:(NSDate*) date
 {
     NSDateComponents* dateComponents = [self.calendar
-                                        components: NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |
-                                        NSWeekdayCalendarUnit
+                                        components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |
+                                        NSCalendarUnitWeekday
                                         fromDate:  date];
     NSDate* returnDate = [self.calendar dateFromComponents:dateComponents];
     return returnDate;
@@ -91,8 +91,8 @@
 -(NSDate* ) normalizeTime:(NSDate*) date
 {
    NSDateComponents* dateComponents = [self.calendar
-                                         components: NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit |
-                                                     NSHourCalendarUnit | NSMinuteCalendarUnit
+                                         components: NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay |
+                                                     NSCalendarUnitHour | NSCalendarUnitMinute
                                            fromDate: date];
    NSDate* returnDate = [self.calendar dateFromComponents:dateComponents];
    return returnDate;
@@ -188,7 +188,7 @@
          {
             if (minutes == 1) post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" minute ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"m", @"MHPrettyDate", nil);
             else post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" minutes ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"m", @"MHPrettyDate", nil);
-            dateString = [NSString stringWithFormat: @"%d%@", minutes, post];
+            dateString = [NSString stringWithFormat: @"%ld%@", (long)minutes, post];
          }
       }
       else
@@ -199,7 +199,7 @@
          
          if (hours == 1) post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" hour ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"h", @"MHPrettyDate", nil);
          else post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" hours ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"h", @"MHPrettyDate", nil);
-         dateString = [NSString stringWithFormat: @"%d%@", hours, post];
+         dateString = [NSString stringWithFormat: @"%ld%@", (long)hours, post];
       }
    }
    else if ([MHPrettyDate isYesterday:date])
@@ -213,7 +213,7 @@
       NSString  *post;
       
       post = (dateFormat == MHPrettyDateLongRelativeTime) ? NSLocalizedStringFromTable(@" days ago", @"MHPrettyDate", nil) : NSLocalizedStringFromTable(@"d", @"MHPrettyDate", nil);
-      dateString = [NSString stringWithFormat: @"%d%@", days, post];
+      dateString = [NSString stringWithFormat: @"%ld%@", (long)days, post];
    }
    
    return dateString;
@@ -365,7 +365,7 @@
 {
     if (!_calendar)
     {
-       _calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSGregorianCalendar];
+       _calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
     }
     return _calendar;
 }
